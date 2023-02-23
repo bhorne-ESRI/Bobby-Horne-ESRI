@@ -1,0 +1,93 @@
+var names = ['DSS-ASC', 'DSS-Child Res.', 'DSS-Child Care']
+var potimpacted = ['N/A', 'N/A', 'N/A']
+var operational = ['N/A', 'N/A', 'N/A']
+var operimpact = ['N/A', 'N/A', 'N/A']
+var nonopershort = ['N/A', 'N/A', 'N/A']
+var nonoperlong = ['N/A', 'N/A', 'N/A']
+var evacpartially = ['N/A', 'N/A', 'N/A']
+var evacfully = ['N/A', 'N/A', 'N/A']
+var evacrepopulating = ['N/A', 'N/A', 'N/A']
+
+// var i = 0
+// for(i in pot_impacted){
+//     if(isEmpty(pot_impacted[i])){
+//         pot_impacted[i] = 'N/A'
+//     }
+//     i++
+// }for(i in operational){
+//     if(isEmpty(operational[i])){
+//         operational[i] = 'N/A'
+//     }
+//     i++
+// }
+// for(i in oper_impact){
+//     if(isEmpty(oper_impact[i])){
+//         oper_impact[i] = 'N/A'
+//     }
+//     i++
+// }
+// for(i in nonoper_short){
+//     if(isEmpty(nonoper_short[i])){
+//         nonoper_short[i] = 'N/A'
+//     }
+//     i++
+// }
+// for(i in nonoper_long){
+//     if(isEmpty(nonoper_long[i])){
+//         nonoper_long[i] = 'N/A'
+//     }
+//     i++
+// }
+// for(i in evac_partially){
+//     if(isEmpty(evac_partially[i])){
+//         evac_partially[i] = 'N/A'
+//     }
+//     i++
+// }
+// for(i in evac_fully){
+//     if(isEmpty(evac_fully[i])){
+//         evac_fully[i] = 'N/A'
+//     }
+//     i++
+// }
+// for(i in evac_repopulating){
+//     if(isEmpty(evac_repopulating[i])){
+//         evac_repopulating[i] = 'N/A'
+//     }
+//     i++
+// }
+var contDict = {
+    fields: [
+        { name: "Dept_facility_type", type: "esriFieldTypeString" },
+        { name: "Potentially_Impacted", type: "esriFieldTypeString" },
+        { name: "Operational", type: "esriFieldTypeString" },
+        { name: "Operational_Impact", type: "esriFieldTypeString" }, 
+        { name: "NonOperational_Short", type: "esriFieldTypeString" },
+        { name: "NonOperational_Long", type: "esriFieldTypeString" },
+        { name: "Partially", type: "esriFieldTypeString" },
+        { name: "Fully", type: "esriFieldTypeString" }, 
+        { name: "Repopulating", type: "esriFieldTypeString" },
+         
+    ],
+    'geometryType': '',
+    'features':[]
+};
+var z=0
+for (var zz in names){
+    contDict.features[z] = {
+        attributes: {
+            Dept_facility_type: Text(names[z]),
+            Potentially_Impacted: Text(potimpacted[z]),
+            Operational: Text(operational[z]),
+            Operational_Impact: Text(operimpact[z]),
+            NonOperational_Short: Text(nonopershort[z]),
+            NonOperational_Long: Text(nonoperlong[z]),
+            Partially: Text(evacpartially[z]),
+            Fully: Text(evacfully[z]),
+            Repopulating: Text(evacrepopulating[z])
+        },
+        geometry: ''
+    }
+    z++
+}
+return(FeatureSet(Text(contDict)))

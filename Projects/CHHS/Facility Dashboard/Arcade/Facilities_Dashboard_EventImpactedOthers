@@ -1,0 +1,142 @@
+// This is the specification of the rows we want in the output table.
+// name is the name that the facility type/category should have in the
+// output table. query is the where clause to use to filter the facilities.
+// featureSet will be populated with the feature set of features matching
+// the query.
+var config = [{
+    'name': 'DSH-All',
+    'query': "ade_source='DSH'"
+}, {
+    'name': 'DDS-All',
+    'query': "ade_source='CDDS'"
+}, {
+    'name': 'DHCS-All',
+    'query': "ade_source='DHCS'"
+}];
+
+
+// Specification for the output feature set
+var output_dict = {
+    'fields': [
+      { name: 'ade_source_facility_type', type: 'esriFieldTypeString', alias: "Dept./Facility Type"},
+      { name: 'county', type: 'esriFieldTypeString', alias: "County" },
+      { name: 'oes_region', type: 'esriFieldTypeString', alias: "OES Region" },
+      { name: 'potentially_impacted', type: 'esriFieldTypeInteger', alias: "Potentially Impacted"},
+      { name: 'operational', type: 'esriFieldTypeInteger', alias: "Operational" },
+      { name: 'operational_impacted', type: 'esriFieldTypeInteger', alias: "Operational w/Impact" },
+      { name: 'non_operational_short', type: 'esriFieldTypeInteger', alias: "Non-Operational Short Term" },
+      { name: 'non_operational_long', type: 'esriFieldTypeInteger', alias: "Non-Operational Long Term" },
+      { name: 'evac_partially', type: 'esriFieldTypeInteger', alias: "Evacuation - Partially" },
+      { name: 'evac_fully', type: 'esriFieldTypeInteger', alias: "Evacuation - Fully" },
+      { name: 'evac_repopulating', type: 'esriFieldTypeInteger', alias: "Re-Populating" }
+    ],
+    'geometryType': '',
+    'features': []
+};
+
+var facilitiesLayer = FeatureSetByPortalItem(
+    Portal('https://www.arcgis.com'),
+    'ce2fd948ebdb415cabd8a6d804bd20f2',
+    3,
+    ["ade_source", "facility_type", "county", "oes_region", "program_type", "event_type" ],
+    false);
+Console("Queried facilities layer");
+
+// We'll create a nested dictionary of the output rows to make them easier to find
+// and update as we go along. First key: dept/fac type name combination; second key: county;
+// third key: oes_region; final value is the output row that gets returned.
+var outputRowDict = {}
+
+// New approach: we'll filter the FacilitiesAllEventsJoin layer by the department/type/program
+// where clauses and then group by county, oes_region, and event_type.
+for (var i in config) {
+    var deptConfig = config[i];
+    var deptFacGroupDict = {};
+    outputRowDict[deptConfig["name"]] = deptFacGroupDict;
+    Console("Processing department/facility type: ", deptConfig);
+    var filteredFacilities = Filter(
+        facilitiesLayer,
+        deptConfig["query"]);
+    Console("Filtered facilities");
+
+    var groupedFacilities = GroupBy(
+        filteredFacilities,
+        ["county", "oes_region", "event_type"],
+        [{'name': 'count', 'expression':'1', statistic:'COUNT'}]
+        );
+
+    Console("Grouped facilities: ", groupedFacilities)
+
+    for (var feature in groupedFacilities) {
+        if (!IsEmpty(feature["county"]) && !IsEmpty(feature["oes_region"]) && !IsEmpty(feature["event_type"])) {
+            var county = feature["county"];
+            var oes_region = feature["oes_region"];
+            var countyDict = {};
+            if (HasKey(deptFacGroupDict, county)) {
+                countyDict = deptFacGroupDict[county];
+            } else {
+                countyDict = {};
+                deptFacGroupDict[county] = countyDict;
+            }
+
+            var outputRow =  None;
+            if (HasKey(countyDict, oes_region)) {
+                outputRow = countyDict[oes_region];
+            } else {
+                outputRow = {
+                    attributes: {
+                        ade_source_facility_type: deptConfig["name"],
+                        county: county,
+                        oes_region: oes_region,
+                        potentially_impacted: 0,
+                        operational: 0,
+                        operational_impacted: 0,
+                        non_operational_short: 0,
+                        non_operational_long: 0,
+                        evac_partially: 0,
+                        evac_fully: 0,
+                        evac_repopulating, 0
+                    }
+                };
+                countyDict[oes_region] = outputRow;
+                Push(output_dict.features, outputRow);
+            }
+        }
+    }
+}
+
+// Lastly, we need to create dummy rows to ensure that every Department/Fac Type/County combination has
+// a row present in the output with at least 0 values for each of the event # columns. This is to prevent
+// an empty row in the table for any of the Dept/Fac Types in case a user filters by a county or OES region
+// that does not have facilities in that Dept/Fac Type (this would normally result in an empty row because
+// ExB considers it to be 'No data').
+var caCounties = FeatureSetByPortalItem(
+    Portal('https://www.arcgis.com'),
+    'f53942113f97404dbafec0c82df25b3a',
+    0,
+    ["County", "oes_region" ],
+    false);
+
+for (var i in config) {
+    var deptConfig = config[i];
+    for (var county in caCounties) {
+        Push(output_dict.features, {
+            attributes: {
+                ade_source_facility_type: deptConfig["name"],
+                county: county["County"],
+                oes_region: county["oes_region"],
+                potentially_impacted: 0,
+                operational: 0,
+                operational_impacted: 0,
+                non_operational_short: 0,
+                non_operational_long: 0,
+                evac_partially: 0,
+                evac_fully: 0,
+                evac_repopulating, 0
+            }
+        });
+    }
+}
+
+Console("About to return output Feature Set ", output_dict);
+return FeatureSet(Text(output_dict));

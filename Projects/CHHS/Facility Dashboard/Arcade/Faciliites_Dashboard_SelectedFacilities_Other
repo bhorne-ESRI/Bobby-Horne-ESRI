@@ -1,0 +1,84 @@
+// This is the specification of the rows we want in the output table.
+// name is the name that the facility type/category should have in the
+// output table. query is the where clause to use to filter the facilities.
+// featureSet will be populated with the feature set of features matching
+// the query.
+var DEPARTMENT = "CDSS";
+// Specification for the output feature set. We have to return Facilities and not aggregate
+// because the output feature set from this script needs to result in features that are selectable
+// by the map selection tool. This requires ade_facility_id in the output, so that the action can
+// match selected feaures from the map based on ade_facility_id. facility_impacted and 
+// licensed_capacity_impacted are populated with 0s if a facility is NOT impacted by any event;
+// if the facility is impacted by an event then facility_impacted will be 1. licensed_capacity_impacted
+// is 0 if a facility is not impacted, and will be the same as licensed_capacity if it is impacted.
+var output_dict = {
+    'fields': [
+      { name: 'ade_source_facility_type', type: 'esriFieldTypeString', alias: "Dept./Facility Type"},
+      { name: 'county', type: 'esriFieldTypeString', alias: "County" },
+      { name: 'oes_region', type: 'esriFieldTypeString', alias: "OES Region" },
+      { name: 'ade_facility_id', type: 'esriFieldTypeString', alias: "Selected Facilities" }, // Alias Selected Facilities so it shows up how we want in the output table
+      { name: 'licensed_capacity', type: 'esriFieldTypeInteger', alias: "Selected Beds" },
+      { name: 'facility_impacted', type: 'esriFieldTypeInteger', alias: "Selected Facilities Impacted" }, // 0 if facility is not impacted; 1 of it is impacted
+      { name: 'licensed_capacity_impacted', type: 'esriFieldTypeInteger', alias: "Selected Beds Impacted" } // 0, or number of beds if facility is impacted
+    ],
+    'geometryType': '',
+    'features': []
+};
+var facilitiesLayer = FeatureSetByPortalItem(
+    Portal('https://www.arcgis.com'),
+    'ce2fd948ebdb415cabd8a6d804bd20f2',
+    2,
+    ["county", "oes_region", "ade_source", "ade_facility_id", "facility_type", "licensed_capacity", "PSPS_Active_Impacted",
+     "Evacuation_Order", "Fire_Buffer_Distance", "grid_code", "program_type"],
+    false);
+Console("Queried facilities layer");
+// We'll create a nested dictionary of the output rows to make them easier to find
+// and update as we go along. First key: dept/fac type name combination; second key: county;
+// third key: oes_region; final value is the output row that gets returned.
+var outputRowDict = {}
+var deptFacilities = Filter(
+    facilitiesLayer,
+    "ade_source='DSH' OR ade_source='CDDS' OR ade_source='DHCS'"
+);
+Console("Got filtered facilities");
+for (var feature in deptFacilities) {
+    //Console("Processing feature ", feature);
+    var outputRow = {
+        attributes: {
+            ade_source_facility_type: "",
+            county: feature["county"],
+            oes_region: feature["oes_region"],
+            ade_facility_id: feature["ade_facility_id"],
+            licensed_capacity: feature["licensed_capacity"],
+            facility_impacted: 0,
+            licensed_capacity_impacted: 0
+        }
+    };
+    if (feature["ade_source"] == 'DSH' ) { 
+        //Console("Processing DSJ");
+        outputRow["attributes"]["ade_source_facility_type"] = "DSH-All";
+    } else if (feature["ade_source"] == 'CDDS') {
+        // Console("Processing SNF");
+        outputRow["attributes"]["ade_source_facility_type"] = "DDS-All";
+    } else if (feature["ade_source"] == 'DHCS') {
+        // Console("Processing DHCS");
+        outputRow["attributes"]["ade_source_facility_type"] = "DHCS-All";
+    } else {
+        // We dont want other types
+    }
+    if (feature["PSPS_Active_Impacted"] == "YES" || feature["Evacuation_Order"] == "YES" ||
+        !IsEmpty(feature["Fire_Buffer_Distance"]) || (!IsEmpty(feature["grid_code"]) && feature["grid_code"] >= 6)) {
+            //Console("Facility is impacted");
+            outputRow["attributes"]["facility_impacted"] = 1;
+            outputRow["attributes"]["licensed_capacity_impacted"] = feature["licensed_capacity"];
+    } else {
+        //Console("Facility is not impacted");
+        outputRow["attributes"]["facility_impacted"] = 0;
+        outputRow["attributes"]["licensed_capacity_impacted"] = 0;
+    }
+    // Console("Adding facility feature to output dictionary");
+    Push(output_dict.features, outputRow);
+    //return FeatureSet(Text(output_dict));
+}
+Console("About to return output Feature Set ", output_dict);
+return FeatureSet(Text(output_dict));

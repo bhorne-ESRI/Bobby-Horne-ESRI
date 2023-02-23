@@ -1,0 +1,251 @@
+// This is the specification of the rows we want in the output table.
+// name is the name that the facility type/category should have in the
+// output table. query is the where clause to use to filter the facilities.
+// featureSet will be populated with the feature set of features matching
+// the query.
+var config = [{
+    'name': 'CDPH-GACH',
+    'query': "ade_source='CDPH' AND facility_type='General Acute Care Hospital'"
+}, {
+    'name': 'CDPH-SNF',
+    'query': "ade_source='CDPH' AND facility_type='Skilled Nursing Facility'"
+}, {
+    'name': 'CDPH-Other',
+    'query': "ade_source='CDPH' AND (facility_type <> 'General Acute Care Hospital' AND facility_type <> 'Skilled Nursing Facility')"
+}, {
+    'name': 'CDSS-ASC',
+    'query': "ade_source='CDSS' AND program_type='Adult and Senior'"
+}, {
+    'name': 'CDSS-Child Res.',
+    'query': "ade_source='CDSS' AND program_type='Childrens Reside'"
+}, {
+    'name': 'CDSS-Child Care',
+    'query': "ade_source='CDSS' AND program_type='Child Care'"
+}, {
+    'name': 'DSH-All',
+    'query': "ade_source='DSH'"
+}, {
+    'name': 'DDS-All',
+    'query': "ade_source='CDDS'"
+}, {
+    'name': 'DHCS-All',
+    'query': "ade_source='DHCS'"
+}];
+
+
+// Specification for the output feature set
+var output_dict = {
+    'fields': [
+      { name: 'ade_source_facility_type', type: 'esriFieldTypeString', alias: "Dept./Facility Type"},
+      { name: 'county', type: 'esriFieldTypeString', alias: "County" },
+      { name: 'oes_region', type: 'esriFieldTypeString', alias: "OES Region" },
+      { name: 'potentially_impacted', type: 'esriFieldTypeInteger', alias: "Potentially Impacted"},
+      { name: 'operational', type: 'esriFieldTypeInteger', alias: "Operational" },
+      { name: 'operational_wimpact', type: 'esriFieldTypeInteger', alias: "Operational w/Impact" },
+      { name: 'nonoperational_short', type: 'esriFieldTypeInteger', alias: "Non-Operational - Short Term" },
+      { name: 'nonoperational_long', type: 'esriFieldTypeInteger', alias: "Non-Operational - Long Term" },
+      { name: 'partially_evac', type: 'esriFieldTypeInteger', alias: "Partially" },
+      { name: 'fully_evac', type: 'esriFieldTypeInteger', alias: "Fully" },
+      { name: 'repopulating', type: 'esriFieldTypeInteger', alias: "Repopulating" }
+    ],
+    'geometryType': '',
+    'features': []
+};
+
+var facilitiesLayer = FeatureSetByPortalItem(
+    Portal('https://www.arcgis.com'),
+    '3f779e917b4241bba3db07f3b4b30ac0',
+    15,
+    ["ade_source", "facility_type", "county", "oes_region", "program_type", "op_status", "evac_status", "grid_code", "Evacuation_Order", "PSPS_Active_Impacted", "Fire_Buffer_Distance"],
+    false);
+Console("Queried facilities layer");
+
+// We'll create a nested dictionary of the output rows to make them easier to find
+// and update as we go along. First key: dept/fac type name combination; second key: county;
+// third key: oes_region; final value is the output row that gets returned.
+var outputRowDict = {}
+
+// New approach: we'll filter the FacilitiesAllEventsJoin layer by the department/type/program
+// where clauses and then group by county, oes_region, and event_type.
+for (var i in config) {
+    var deptConfig = config[i];
+    var deptFacGroupDict = {};
+    outputRowDict[deptConfig["name"]] = deptFacGroupDict;
+    Console("Processing department/facility type: ", deptConfig);
+    var filteredFacilities = Filter(
+        facilitiesLayer,
+        deptConfig["query"]);
+    Console("Filtered facilities");
+
+    var groupedFacilities = GroupBy(
+        filteredFacilities,
+        ["county", "oes_region", "op_status", "evac_status"],
+        [{'name': 'count', 'expression':'1', statistic:'COUNT'}]
+        );
+
+    Console("Grouped facilities: ", groupedFacilities)
+
+    for (var feature in groupedFacilities) {
+        if (!IsEmpty(feature["county"]) && !IsEmpty(feature["oes_region"]) && !IsEmpty(feature["op_status"])) {
+            var county = feature["county"];
+            var oes_region = feature["oes_region"];
+            var countyDict = {};
+            if (HasKey(deptFacGroupDict, county)) {
+                countyDict = deptFacGroupDict[county];
+            } else {
+                countyDict = {};
+                deptFacGroupDict[county] = countyDict;
+            }
+
+            var outputRow =  None;
+            if (HasKey(countyDict, oes_region)) {
+                outputRow = countyDict[oes_region];
+            } else {
+                outputRow = {
+                    attributes: {
+                        ade_source_facility_type: deptConfig["name"],
+                        county: county,
+                        oes_region: oes_region,
+                        potentially_impacted: 0,
+                        operational: 0,
+                        operational_wimpact: 0,
+                        nonoperational_short: 0,
+                        nonoperational_long: 0,
+                        partially_evac: 0,
+                        fully_evac: 0,
+                        repopulating: 0
+                    }
+                };
+                countyDict[oes_region] = outputRow;
+                Push(output_dict.features, outputRow);
+            }
+
+            var opStatus = feature["op_status"];
+            var ade_source = feature["ade_source"];
+
+            if (opStatus == "Operational" && ade_source == "CDPH") {
+                Console(`Setting ${deptConfig["name"]} ${feature["county"]} ${feature["oes_region"]} ${opStatus} feature count to ${feature["count"]}`);
+                outputRow["attributes"]["operational"] = feature["count"];
+            } else if (opStatus == "Operational With Impacts" && ade_source == "CDPH") {
+                Console(`Setting ${deptConfig["name"]} ${feature["county"]} ${feature["oes_region"]} ${opStatus} feature count to ${feature["count"]}`);
+                outputRow["attributes"]["operational_wimpact"] = feature["count"];
+            } else if (opStatus == "Non-Operational Short Term" && ade_source == "CDPH") {
+                Console(`Setting ${deptConfig["name"]} ${feature["county"]} ${feature["oes_region"]} ${opStatus} feature count to ${feature["count"]}`);
+                outputRow["attributes"]["nonoperational_short"] = feature["count"];
+            } else if (opStatus == "Non-Operational Long Term" && ade_source == "CDPH") {
+                Console(`Setting ${deptConfig["name"]} ${feature["county"]} ${feature["oes_region"]} ${opStatus} feature count to ${feature["count"]}`);
+                outputRow["attributes"]["nonoperational_long"] = feature["count"];
+            } else {
+                // We don't care about other event types
+            }
+
+            var evacStatus = feature["evac_status"];
+
+            if (evacStatus == "Fully Evacuated" && ade_source == "CDPH") {
+                Console(`Setting ${deptConfig["name"]} ${feature["county"]} ${feature["oes_region"]} ${evacStatus} feature count to ${feature["count"]}`);
+                outputRow["attributes"]["fully_evac"] = feature["count"];
+            } else if (evacStatus == "Repopulating" && ade_source == "CDPH") {
+                Console(`Setting ${deptConfig["name"]} ${feature["county"]} ${feature["oes_region"]} ${evacStatus} feature count to ${feature["count"]}`);
+                outputRow["attributes"]["repopulating"] = feature["count"];
+            } else if (evacStatus == "Partially Evacuated" && ade_source == "CDPH") {
+                Console(`Setting ${deptConfig["name"]} ${feature["county"]} ${feature["oes_region"]} ${evacStatus} feature count to ${feature["count"]}`);
+                outputRow["attributes"]["partially_evac"] = feature["count"];
+            } else {
+                // We don't care about other event types
+            }
+            
+        }
+    }
+
+    
+    Console("About to determine potentially impacted facilities");
+    // We have to determine the count of potentially impacted facilities separately because the FacilitiesAllEventsJoin
+    // table we are using will contain duplicates in the case of facilities impacted by more than one event. First we filter
+    // the FeatureSet to include only facilities impacted by the events that we care about, and then we use a GroupBy to
+    // get down to distinct facilities.
+    var potentiallyImpactedFacilities = Filter(
+        filteredFacilities,
+        "grid_code >=5 or Fire_Buffer_Distance is not null or PSPS_Active_Impacted = 'YES' or Evacuation_Order = 'YES'"
+    );
+    Console("Potentially Impacted Facilities Count: ", Count(potentiallyImpactedFacilities));
+    var groupedPotentiallyImpactedFacilities = GroupBy(
+        potentiallyImpactedFacilities,
+        ["county", "oes_region"],
+        [{'name': 'count', 'expression':'1', statistic: 'COUNT'}]
+    );
+    Console("Grouped potentially impacted facilities: ", groupedPotentiallyImpactedFacilities);
+    for (var feature2 in groupedPotentiallyImpactedFacilities) {
+        Console("Processing grouped potentially impacted facility: ", feature2);
+        if (!IsEmpty(feature2["county"]) && !IsEmpty(feature2["oes_region"])) {
+            Console("Made it through empty filter");
+            if (feature2["count"] > 0) {
+                var county = feature2["county"];
+                var oes_region = feature2["oes_region"];
+                var countyDict = {};
+                if (HasKey(deptFacGroupDict, county)) {
+                    countyDict = deptFacGroupDict[county];
+                } else {
+                    countyDict = {};
+                    deptFacGroupDict[county] = countyDict;
+                }
+                var outputRow =  None;
+                if (HasKey(countyDict, oes_region)) {
+                    outputRow = countyDict[oes_region];
+                } else {
+                    outputRow = {
+                        attributes: {
+                            ade_source_facility_type: deptConfig["name"],
+                            county: county,
+                            oes_region: oes_region,
+                            potentially_impacted: 0,
+                            operational: 0,
+                            operational_wimpact: 0,
+                            nonoperational_short: 0,
+                            nonoperational_long: 0,
+                            partially_evac: 0,
+                            fully_evac: 0,
+                            repopulating: 0
+                        }
+                    };
+                }    
+                outputRow["attributes"]["potentially_impacted"] += feature2["count"];
+            }
+        }
+    }
+}
+
+// Lastly, we need to create dummy rows to ensure that every Department/Fac Type/County combination has
+// a row present in the output with at least 0 values for each of the event # columns. This is to prevent
+// an empty row in the table for any of the Dept/Fac Types in case a user filters by a county or OES region
+// that does not have facilities in that Dept/Fac Type (this would normally result in an empty row because
+// ExB considers it to be 'No data').
+var caCounties = FeatureSetByPortalItem(
+    Portal('https://www.arcgis.com'),
+    'f53942113f97404dbafec0c82df25b3a',
+    0,
+    ["County", "oes_region" ],
+    false);
+
+for (var i in config) {
+    var deptConfig = config[i];
+    for (var county in caCounties) {
+        Push(output_dict.features, {
+            attributes: {
+                ade_source_facility_type: deptConfig["name"],
+                county: county["County"],
+                oes_region: county["oes_region"],
+                potentially_impacted: 0,
+                operational: 0,
+                operational_wimpact: 0,
+                nonoperational_short: 0,
+                nonoperational_long: 0,
+                partially_evac: 0,
+                fully_evac: 0,
+                repopulating: 0
+            }
+        });
+    }
+}
+
+Console("About to return output Feature Set ", output_dict);
+return FeatureSet(Text(output_dict));
