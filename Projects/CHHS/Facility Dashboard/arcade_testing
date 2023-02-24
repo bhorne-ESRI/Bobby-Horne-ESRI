@@ -1,0 +1,29 @@
+var fac_name = 
+    if (feature["ade_source"] == 'DSH' ) { 
+        return "DSH-All";
+    } else if (feature["ade_source"] == 'CDDS') {
+        return "DDS-All";
+    } else if (feature["ade_source"] == 'DHCS') {
+        return "DHCS-All";
+    } else if (feature["ade_source"] == 'CDPH') {
+        if (feature["facility_type"] == 'General Acute Care Hospital') {
+            return "CDPH-GACH";
+        } else if (feature["facility_type"] == 'Skilled Nursing Facility') {
+            return "CDPH-SNF";
+        } else {
+            return "CDPH-Other";
+        }
+    } else if (feature["ade_source"] == 'CDSS') {
+        if (feature["program_type"] == 'Adult And Senior') { 
+            return "CDSS-ASC";
+        } else if (feature["program_type"] == 'Childrens Reside') {
+            return "CDSS-Child Res";
+        } else if (feature["program_type"] == 'Child Care') {
+            return "CDSS-Child Care";
+        } else {
+            return "CDSS-Other";
+        }
+    } else {
+        Console("We dont expect this")
+    }
+return fac_name
