@@ -1,0 +1,69 @@
+<div class="col-xs-12 col-sm-6 col-md-3">
+  <div class="calcite-web">
+    <a href="#hyperwall">
+      </a><div class="card-base" style="text-decoration: none;"><a href="#hyperwall">
+        </a><div class="card-image-wrap" style="position: relative;"><a href="#hyperwall">
+          </a><img alt="TEXT" class="card-image" src="https://gis.earthdata.nasa.gov/portal/sharing/rest/content/items/e612d4800294410da7c5a071514f9d3f/data" style="width: 100%; height: 250px;">
+          <div class="gradient-overlay" style="position: absolute; bottom: 0; left: 0; width: 100%; height: 40%; background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));"></div>
+        </div>
+            <div class="card-content" style="background-color: black; color: white;">
+        <h4 style="font-size: 22px;"><a href="#hyperwall" style="text-decoration: none;">The Hyperwall</a></h4>
+        <p style="font-size: 14px; min-height: 125px"><a href="#hyperwall" style="text-decoration: none;">The hyperwall combines storytelling with a data-driven dashboard powered by NASA’s Earth-observing satellites. The data shown here is the same information provided to our interagency, state, and local partners to effect positive change in communities across the country.</a><br><br><br><br></p><a href="#hyperwall">
+      </a></div><a href="#hyperwall">
+      </a></div><a href="#hyperwall">
+    </a>
+  </div>
+</div>
+
+
+<div class="col-xs-12 col-sm-6 col-md-3">
+  <div class="calcite-web">
+    <a href="#earth-pulse">
+      </a><div class="card-base" style="text-decoration: none;"><a href="#earth-pulse">
+        </a><div class="card-image-wrap" style="position: relative;"><a href="#earth-pulse">
+          </a><img alt="TEXT" class="card-image" src="https://gis.earthdata.nasa.gov/portal/sharing/rest/content/items/7b03c5af09b24e24a5112746fda2e6c2/data" style="width: 100%; height: 250px;">
+          <div class="gradient-overlay" style="position: absolute; bottom: 0; left: 0; width: 100%; height: 40%; background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));"></div>
+        </div>
+            <div class="card-content" style="background-color: black; color: white;">
+        <h4 style="font-size: 22px;"><a href="#earth-pulse" style="text-decoration: none;">Earth Pulse</a></h4>
+        <p style="font-size: 14px; min-height:  125px"><a href="#earth-pulse" style="text-decoration: none;">The Earth Pulse is a glimmering chandelier-like sculpture that visualizes live communication with NASA’s Earth satellites, using light activity that represents data transmission in real time. Different patterns and speeds represent the amount of data being transferred and how quickly it reaches its destination.</a></p><a href="#earth-pulse">
+      </a></div><a href="#earth-pulse">
+      </a></div><a href="#earth-pulse">
+    </a>
+  </div>
+</div>
+
+<div class="col-xs-12 col-sm-6 col-md-3">
+  <div class="calcite-web">
+    <a href="#space-for-earth">
+      </a><div class="card-base" style="text-decoration: none;"><a href="#space-for-earth">
+        </a><div class="card-image-wrap" style="position: relative;"><a href="#space-for-earth">
+          </a><img alt="TEXT" class="card-image" src="https://gis.earthdata.nasa.gov/portal/sharing/rest/content/items/1e1e9a7ad99140f780061ca797e99085/data" style="width: 100%; height: 250px;">
+          <div class="gradient-overlay" style="position: absolute; bottom: 0; left: 0; width: 100%; height: 40%; background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));"></div>
+        </div>
+            <div class="card-content" style="background-color: black; color: white;">
+        <h4 style="font-size: 22px;"><a href="#space-for-earth" style="text-decoration: none;">Space for Earth</a></h4>
+        <p style="font-size: 14px; min-height:  125px"><a href="#space-for-earth" style="text-decoration: none;">Space for Earth is an immersive experience where viewers can experience Earth’s interconnectedness and changing vital signs.</a><br><br><br><br></p><p style="font-size: 14px; min-height:  125px"><br></p><a href="#space-for-earth">
+      </a></div><a href="#space-for-earth">
+      </a></div><a href="#space-for-earth">
+    </a>
+  </div>
+</div>
+
+<div class="col-xs-12 col-sm-6 col-md-3">
+  <div class="calcite-web">
+    <a href="#worm">
+      </a><div class="card-base" style="text-decoration: none;"><a href="#worm">
+        </a><div class="card-image-wrap" style="position: relative;"><a href="#worm">
+          </a><img alt="TEXT" class="card-image" src="https://gis.earthdata.nasa.gov/portal/sharing/rest/content/items/514cce8aaa09422e8a7e5077910994fa/data" style="width: 100%; height: 250px;">
+          <div class="gradient-overlay" style="position: absolute; bottom: 0; left: 0; width: 100%; height: 40%; background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));"></div>
+        </div>
+            <div class="card-content" style="background-color: black; color: white;">
+        <h4 style="font-size: 22px;"><a href="#worm" style="text-decoration: none;">The Worm Is Back!</a></h4>
+        <p style="font-size: 14px; min-height:  125px"><a href="#worm" style="text-decoration: none;">Created by Richard Danne, the logo was honored in 1984 by President Ronald Reagan for its simplistic yet innovative design.</a><br><br><br></p><p style="font-size: 14px; min-height:  125px"><br><br><br><br></p><a href="#worm">
+      </a></div><a href="#worm">
+      </a></div><a href="#worm">
+    </a>
+  </div>
+</div>
+

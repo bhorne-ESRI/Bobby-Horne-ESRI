@@ -1,0 +1,48 @@
+
+<div class="col-xs-12 col-sm-6 col-md-6" style="margin-right: -20px; margin-bottom: -5px">
+  <div class="calcite-web">
+      <div class="card-base">
+        <div class="card-image-wrap" style="position: relative;">
+          <img alt="TEXT" class="card-image" src="https://gis.earthdata.nasa.gov/portal/sharing/rest/content/items/fe6caf1afd9b455dbc79d3cf3f75c89c/data" style="width: 100%; height: 230px;">
+          <div class="gradient-overlay" style="position: absolute; bottom: 0; left: 0; width: 100%; height: 40%; background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));"></div>
+        </div>
+            <div class="card-content" style="background-color: black; color: white;">
+        <h4 style="font-size: 18px;">Earth is Breathing</h4>
+        <p style="font-size: 14px;">Visitors begin to feel a living Earth through the Earth’s Vitals, focusing on breathing biomimicry (seasonal polar ice expansion and constriction / chlorophyll bloom and constriction) and relate to the quality of Earth’s breathing/photosynthesis/chlorophyll index around the planet represented by the growth and variation of Green using the Normalized Difference Vegetation Index (NDVI) Data.</p>
+					<a href="https://svs.gsfc.nasa.gov/5006" target="_blank" style="text-decoration: none;">
+					<button class="button-black-left" tabindex="-1">Explore Earth is Breathing &nbsp;
+							<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<circle cx="8" cy="8" r="8" fill="#F64137"/>
+								<path d="M5.50953 11.1663L9.96558 6.71022L10.0585 9.52118L10.9741 9.55153L10.8286 5.17158L6.44862 5.02605L6.47898 5.94169L9.28993 6.03457L4.83389 10.4906L5.50953 11.1663Z" fill="white"/>
+							</svg>
+					</button>
+											</a>
+      </div>
+      </div>
+  </div>
+</div>
+
+
+
+<div class="col-xs-12 col-sm-6 col-md-6" style="margin-right: -20px; margin-bottom: -5px">
+  <div class="calcite-web">
+      <div class="card-base">
+        <div class="card-image-wrap" style="position: relative;">
+          <img alt="TEXT" class="card-image" src="https://gis.earthdata.nasa.gov/portal/sharing/rest/content/items/1cb97e60e5924358ae362c638845af5b/data" style="width: 100%; height: 230px;">
+          <div class="gradient-overlay" style="position: absolute; bottom: 0; left: 0; width: 100%; height: 40%; background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));"></div>
+        </div>
+            <div class="card-content" style="background-color: black; color: white;">
+        <h4 style="font-size: 18px;">Earth's Vital Signs</h4>
+        <p style="font-size: 14px;">Earth as art, satellite images relate recognizable physiological similarities between known human body systems, such as the nervous and circulatory, and the fascinating reveal of their macro equivalents on Earth, such as the fluvial river pathways and wind currents.</p>
+        <a href="https://eros.usgs.gov/media-gallery/earth-as-art/1/ganges-river-delta" target="_blank" style="text-decoration: none;">
+					<button class="button-black-left" tabindex="-1">Explore Earth's Vital Signs&nbsp;
+							<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<circle cx="8" cy="8" r="8" fill="#F64137"/>
+								<path d="M5.50953 11.1663L9.96558 6.71022L10.0585 9.52118L10.9741 9.55153L10.8286 5.17158L6.44862 5.02605L6.47898 5.94169L9.28993 6.03457L4.83389 10.4906L5.50953 11.1663Z" fill="white"/>
+							</svg>
+					</button>
+											</a>
+      </div>
+      </div>
+  </div>
+</div>

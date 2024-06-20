@@ -1,0 +1,27 @@
+from arcgis.gis import GIS
+
+username_1 = input("bobby.horne")
+gis1=GIS(r"https://arcgis.com", username_1)
+
+username_2 = input("bhorne_ps_dbs")
+gis2 = GIS(r"https://arcgis.com", username_2)
+
+#Get a specific item using item id:
+itemid = 'df590201ee3c4049914f2b8396305366'
+items = gis1.content.search(itemid) 
+
+print(str(len(items)) + " items will be cloned. See the list below:") 
+items
+
+def deep_copy_content(input_list):
+    for item in input_list:
+        try:
+            print("Cloning " + item.title)
+            copy_list = []
+            copy_list.append(item)
+            gis2.content.clone_items(copy_list, copy_data=True, search_existing_items=True)
+            print("Successfully cloned " + item.title)
+        except Exception as e:
+            print(e)
+    print("The function has completed")
+deep_copy_content(items)

@@ -1,0 +1,408 @@
+<style>
+    h1{
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 72px;
+      line-height: 72px;
+      letter-spacing: -1.5px;
+    }
+    
+    h2{
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 41px;
+      line-height: 110%;
+      letter-spacing: -1.25px;
+    }
+    
+    h3{
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 29px;
+      line-height: 29px;
+      letter-spacing: -0.75px;
+    }
+    
+    h4{
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 26px;
+      letter-spacing: -0.5px;
+    }
+    
+    h5{
+      font-family: 'Inter';
+      font-style: normal;
+        font-weight: 600;
+      font-size: 18px;
+      line-height: 23px;
+      letter-spacing: -0.5px;
+    }
+    
+    h6{
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 20px;
+      letter-spacing: -0.5px;
+    }
+    
+    p.big{
+      font-family: 'Public Sans';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 27px;
+      letter-spacing: -0.25px;
+    }
+    
+    p.small{
+      font-family: 'Public Sans';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+    }
+    
+    label{
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 21px;
+      letter-spacing: 4.25px;
+      text-transform: uppercase;
+    }
+    
+    .button-black {
+      background-color: #000000 !important;
+      border: none;
+      color: white !important;
+      text-align: center;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .button-black-left {
+      background-color: #000000 !important;
+      border: none;
+      color: white !important;
+      text-align: left;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: left;
+      margin-left:-5px;
+    }
+    
+    .button-white {
+      background-color: #ffffff !important;
+      border: none;
+      color: black !important;
+      text-align: center;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .button-white-left {
+      background-color: #ffffff !important;
+      border: none;
+      color: black !important;
+      text-align: left;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: left;
+      margin-left:-5px;
+    }
+    
+    .button-gray {
+      background-color: #f6f6f6 !important;
+      border: none;
+      color: black !important;
+      text-align: center;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .button-gray-left {
+      background-color: #f6f6f6 !important;
+      border: none;
+      color: black !important;
+      text-align: left;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: left;
+      margin-left:-5px;
+    }
+    
+    .button-black span {
+      margin-right: 8px;
+    }
+    .button-white span {
+      margin-right: 8px;
+    }
+    .button-gray span {
+      margin-right: 8px;
+    }
+    
+    .button-black:hover {
+      background-color: #242424 !important;
+      color: white;
+    }
+    .button-white:hover {
+      background-color: #f6f6f6 !important;
+      color: black;
+    }
+    .button-gray:hover {
+      background-color: white !important;
+      color: black;
+    }
+    .button-black-left:hover {
+      background-color: #242424 !important;
+      color: white;
+    }
+    .button-white-left:hover {
+      background-color: #f6f6f6 !important;
+      color: black;
+    }
+    .button-gray-left:hover {
+      background-color: white !important;
+      color: black;
+    }
+    
+      /* Create two equal columns that floats next to each other */
+    .column {
+      float: left;
+      width: 20%;
+      padding: 10%;
+    }
+    .column2 {
+      float: left;
+      width: auto;
+      padding: 10px;
+    
+    }
+    
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+     
+    ul.no-bullets {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .mobile {
+        visibility:hidden;
+        display: none;
+    }
+    
+    @media (max-width: 414px) and (min-width: 367px) {
+      @viewport {
+        width: device-width;
+      }
+    }
+    
+    @media screen and (max-width : 414px) {
+        .mobile {
+            visibility:visible;
+            display: block;
+        }
+    }  
+    
+    .not-mobile {
+        visibility:hidden;
+        display: none;
+    }
+    
+    @media (min-width: 414px) {
+      @viewport {
+        width: device-width;
+      }
+    }
+    
+    @media screen and (min-width : 414px) {
+        .not-mobile {
+            visibility:visible;
+            display: block;
+    
+        }
+    
+    } 
+    
+    </style>
+    
+    <br>
+    <div class="parent" style="height:477px;">
+        <div class="div1">
+          <a class="logo" title="NASA logo" href="https://www.nasa.gov/">
+        <img src="https://www.nasa.gov/sites/all/themes/custom/nasatwo/images/nasa-logo.svg" alt="Nasa Logo" style="text-align:left; margin-left:-5px;"></a>
+      </div>
+      
+      <div class="div2 not-mobile">
+        <h3>Earth Information Center</h3>
+        <p>A Hybrid Installation </p>
+      </div>
+    
+      <div class="div4 not-mobile">    
+        <br>  
+          <a href="https://www.nasa.gov" target="_blank"><p>NASA.gov</p></a>
+          <a href="https://www.nasa.gov/about/contact/index.html" target="_blank"><p>Contact</p></a> 
+          <a href="https://climate.nasa.gov/" target="_blank"><p>Global Climate Change</p></a>
+          <a href="https://eyes.nasa.gov/apps/earth/#/" target="_blank"><p>Eyes on Earth</p></a>
+          <a href="https://science.nasa.gov/" target="_blank"><p>Science Mission Directorate</p></a>
+          <br>
+      </div>
+    
+      <div class="div6 not-mobile">
+          <br>
+          <a href="https://www.nasa.gov/audience/formedia/features/communication_policy.html" target="_blank"><p>Communications Policy</p></a>
+          <a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank"><p>Web Privacy</p></a> 
+          <a href="https://www.nasa.gov/FOIA/index.html" target="_blank"><p>Freedom of Information Act</p></a>
+          <a href="https://www.usa.gov/" target="_blank"><p>USA.gov</p></a>
+      </div>
+      
+      <div class="div7 not-mobile">
+          Follow NASA<br>
+            <a href="https://www.facebook.com/NASA/" title="facebook link" target="_blank"><svg xmlns='https://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 90 90' style='fill: #C1C1C1;'>
+              <path d='M90,15.001C90,7.119,82.884,0,75,0H15C7.116,0,0,7.119,0,15.001v59.998
+              C0,82.881,7.116,90,15.001,90H45V56H34V41h11v-5.844C45,25.077,52.568,16,61.875,16H74v15H61.875C60.548,31,59,32.611,59,35.024V41
+              h15v15H59v34h16c7.884,0,15-7.119,15-15.001V15.001z'></path>
+            </svg></a>
+            <a href="https://twitter.com/NASA" title="twitter link" target="_blank"><svg xmlns='https://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 510 510' style='fill: #C1C1C1; margin-left: 4px;'>
+              <path d='M459,0H51C22.95,0,0,22.95,0,51v408c0,28.05,22.95,51,51,51h408c28.05,0,51-22.95,51-51V51C510,22.95,487.05,0,459,0z
+              M400.35,186.15c-2.55,117.3-76.5,198.9-188.7,204C165.75,392.7,132.6,377.4,102,359.55c33.15,5.101,76.5-7.649,99.45-28.05
+              c-33.15-2.55-53.55-20.4-63.75-48.45c10.2,2.55,20.4,0,28.05,0c-30.6-10.2-51-28.05-53.55-68.85c7.65,5.1,17.85,7.65,28.05,7.65
+              c-22.95-12.75-38.25-61.2-20.4-91.8c33.15,35.7,73.95,66.3,140.25,71.4c-17.85-71.4,79.051-109.65,117.301-61.2
+              c17.85-2.55,30.6-10.2,43.35-15.3c-5.1,17.85-15.3,28.05-28.05,38.25c12.75-2.55,25.5-5.1,35.7-10.2
+              C425.85,165.75,413.1,175.95,400.35,186.15z'></path>
+            </svg></a>
+            <a href="https://www.linkedin.com/company/nasa" title="linkedin link" target="_blank"><svg xmlns='https://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' style='fill: #C1C1C1; margin-left: 4px;'>
+              <path d='M21.6 0H2.4C1.08 0 0 1.08 0 2.4v19.2C0 22.92 1.08 24 2.4 24h19.2c1.32 0 2.4-1.08 2.4-2.4V2.4C24 1.08 22.92 0 21.6 0zM7.2 20.4H3.6V9.6h3.6v10.8zM5.4 7.56c-1.2 0-2.16-.96-2.16-2.16 0-1.2.96-2.16 2.16-2.16 1.2 0 2.16.96 2.16 2.16 0 1.2-.96 2.16-2.16 2.16zm15 12.84h-3.6v-6.36c0-.96-.84-1.8-1.8-1.8-.96 0-1.8.84-1.8 1.8v6.36H9.6V9.6h3.6v1.44c.6-.96 1.92-1.68 3-1.68 2.28 0 4.2 1.92 4.2 4.2v6.84z'></path>
+            </svg></a>
+            <a href="https://www.instagram.com/nasa/?hl=en" title="instagram link" target="_blank"><svg xmlns='https://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' style='fill: #C1C1C1; margin-left: 4px;'>
+              <path d='M21.6 0H2.4C1.08 0 0 1.08 0 2.4v19.2C0 22.92 1.08 24 2.4 24h19.2c1.32 0 2.4-1.08 2.4-2.4V2.4C24 1.08 22.92 0 21.6 0zM12 7.2c2.64 0 4.8 2.16 4.8 4.8 0 2.64-2.16 4.8-4.8 4.8-2.64 0-4.8-2.16-4.8-4.8 0-2.64 2.16-4.8 4.8-4.8zM3 21.6c-.36 0-.6-.24-.6-.6V10.8h2.52c-.12.36-.12.84-.12 1.2 0 3.96 3.24 7.2 7.2 7.2s7.2-3.24 7.2-7.2c0-.36 0-.84-.12-1.2h2.52V21c0 .36-.24.6-.6.6H3zM21.6 5.4c0 .36-.24.6-.6.6h-2.4c-.36 0-.6-.24-.6-.6V3c0-.36.24-.6.6-.6H21c.36 0 .6.24.6.6v2.4z'></path>
+            </svg></a>
+            <a href="https://www.youtube.com/@NASA" title="youtube link" target="_blank"><svg xmlns='https://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' style='fill: #C1C1C1; margin-left: 4px;'>
+              <path d='M21.6 0C22.92 0 24 1.08 24 2.4v19.2c0 1.32-1.08 2.4-2.4 2.4H2.4C1.08 24 0 22.92 0 21.6V2.4C0 1.08 1.08 0 2.4 0zM12 6.6c-2.393 0-4.338.112-5.836.335A1.6 1.6 0 0 0 4.8 8.518v6.905a1.6 1.6 0 0 0 1.387 1.586c1.937.26 3.875.391 5.813.391 1.938 0 3.876-.13 5.813-.391a1.6 1.6 0 0 0 1.387-1.586V8.518a1.6 1.6 0 0 0-1.364-1.583C16.338 6.712 14.393 6.6 12 6.6zm-1.2 3l3.6 2.4-3.6 2.4V9.6z'></path>
+            </svg></a> 
+          </div>
+          
+      
+           
+        <div class="div9 not-mobile" style="text-align: right;">
+          <!-- FOUNDING PARTNERS -->
+          <a href="https://www.usda.gov/" title="USDA" target="_blank">
+            <img src="https://gis.earthdata.nasa.gov/portal/sharing/rest/content/items/9b9287369c7c4256add97d5a336cec96/data" alt="USDA" width="" height="28px" />
+          </a>&nbsp;
+          <a href="https://www.usgs.gov/" title="USGS" target="_blank">
+            <img src="https://gis.earthdata.nasa.gov/portal/sharing/rest/content/items/fdacf1b8d3794c468439e2e0f0c604cb/data" alt="USGS" width="" height="20px" />
+          </a>&nbsp;
+                <a href="https://www.fema.gov/" title="FEMA" target="_blank">
+            <img src="https://gis.earthdata.nasa.gov/portal/sharing/rest/content/items/b29a95351b584be69fbd98dc489faa53/data" alt="FEMA" width="" height="35px" />
+          </a>&nbsp;
+    
+           <a href="https://www.epa.gov/" title="EPA" target="_blank">
+            <img src="https://gis.earthdata.nasa.gov/portal/sharing/rest/content/items/3f5e590cbdd44e3eb64b7910da5c4bab/data" alt="EPA" width="" height="40px" />
+          </a>&nbsp;
+    
+          <a href="https://www.usaid.gov/" title="USAID" target="_blank">
+            <img src="https://gis.earthdata.nasa.gov/portal/sharing/rest/content/items/5da92a69e1824763ba1813ab2e576d9e/data" alt="USAID" width="" height="40px" />
+          </a>&nbsp;
+          <a href="https://www.noaa.gov/" title="NOAA" target="_blank">
+            <img src="https://gis.earthdata.nasa.gov/portal/sharing/rest/content/items/410caa84a0f34a2dafa641d0c9e47caa/data" alt="NOAA" width="" height="42px" />
+          </a>&nbsp;
+        </div>
+        
+    
+    
+    <!-- MOBILE FOOTER BELOW -->
+    
+        <div class="div1 mobile">
+          <a class="logo" title="NASA home page" href="https://www.nasa.gov/" target="_blank">
+        <img src="https://www.nasa.gov/sites/all/themes/custom/nasatwo/images/nasa-logo.svg" alt="Nasa Logo" style="text-align:left; margin-left:-5px;"></a>
+      </div>
+        <div class="div2 mobile">
+        <h3>Earth Information Center</h3>
+        <p>A Hybrid Installation </p>
+              <br><br>Follow NASA<br>
+            <a href="https://www.facebook.com/NASA/" title="facebook link" target="_blank"><svg xmlns='https://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 90 90' style='fill: #C1C1C1;'>
+              <path d='M90,15.001C90,7.119,82.884,0,75,0H15C7.116,0,0,7.119,0,15.001v59.998
+              C0,82.881,7.116,90,15.001,90H45V56H34V41h11v-5.844C45,25.077,52.568,16,61.875,16H74v15H61.875C60.548,31,59,32.611,59,35.024V41
+              h15v15H59v34h16c7.884,0,15-7.119,15-15.001V15.001z'></path>
+            </svg></a>
+            <a href="https://twitter.com/NASA" title="twitter link" target="_blank"><svg xmlns='https://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 510 510' style='fill: #C1C1C1; margin-left: 4px;'>
+              <path d='M459,0H51C22.95,0,0,22.95,0,51v408c0,28.05,22.95,51,51,51h408c28.05,0,51-22.95,51-51V51C510,22.95,487.05,0,459,0z
+              M400.35,186.15c-2.55,117.3-76.5,198.9-188.7,204C165.75,392.7,132.6,377.4,102,359.55c33.15,5.101,76.5-7.649,99.45-28.05
+              c-33.15-2.55-53.55-20.4-63.75-48.45c10.2,2.55,20.4,0,28.05,0c-30.6-10.2-51-28.05-53.55-68.85c7.65,5.1,17.85,7.65,28.05,7.65
+              c-22.95-12.75-38.25-61.2-20.4-91.8c33.15,35.7,73.95,66.3,140.25,71.4c-17.85-71.4,79.051-109.65,117.301-61.2
+              c17.85-2.55,30.6-10.2,43.35-15.3c-5.1,17.85-15.3,28.05-28.05,38.25c12.75-2.55,25.5-5.1,35.7-10.2
+              C425.85,165.75,413.1,175.95,400.35,186.15z'></path>
+            </svg></a>
+            <a href="https://www.linkedin.com/company/nasa" title="linkedin link" target="_blank"><svg xmlns='https://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' style='fill: #C1C1C1; margin-left: 4px;'>
+              <path d='M21.6 0H2.4C1.08 0 0 1.08 0 2.4v19.2C0 22.92 1.08 24 2.4 24h19.2c1.32 0 2.4-1.08 2.4-2.4V2.4C24 1.08 22.92 0 21.6 0zM7.2 20.4H3.6V9.6h3.6v10.8zM5.4 7.56c-1.2 0-2.16-.96-2.16-2.16 0-1.2.96-2.16 2.16-2.16 1.2 0 2.16.96 2.16 2.16 0 1.2-.96 2.16-2.16 2.16zm15 12.84h-3.6v-6.36c0-.96-.84-1.8-1.8-1.8-.96 0-1.8.84-1.8 1.8v6.36H9.6V9.6h3.6v1.44c.6-.96 1.92-1.68 3-1.68 2.28 0 4.2 1.92 4.2 4.2v6.84z'></path>
+            </svg></a>
+            <a href="https://www.instagram.com/nasa/?hl=en" title="instagram link" target="_blank"><svg xmlns='https://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' style='fill: #C1C1C1; margin-left: 4px;'>
+              <path d='M21.6 0H2.4C1.08 0 0 1.08 0 2.4v19.2C0 22.92 1.08 24 2.4 24h19.2c1.32 0 2.4-1.08 2.4-2.4V2.4C24 1.08 22.92 0 21.6 0zM12 7.2c2.64 0 4.8 2.16 4.8 4.8 0 2.64-2.16 4.8-4.8 4.8-2.64 0-4.8-2.16-4.8-4.8 0-2.64 2.16-4.8 4.8-4.8zM3 21.6c-.36 0-.6-.24-.6-.6V10.8h2.52c-.12.36-.12.84-.12 1.2 0 3.96 3.24 7.2 7.2 7.2s7.2-3.24 7.2-7.2c0-.36 0-.84-.12-1.2h2.52V21c0 .36-.24.6-.6.6H3zM21.6 5.4c0 .36-.24.6-.6.6h-2.4c-.36 0-.6-.24-.6-.6V3c0-.36.24-.6.6-.6H21c.36 0 .6.24.6.6v2.4z'></path>
+            </svg></a>
+            <a href="https://www.youtube.com/@NASA" title="youtube link" target="_blank"><svg xmlns='https://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' style='fill: #C1C1C1; margin-left: 4px;'>
+              <path d='M21.6 0C22.92 0 24 1.08 24 2.4v19.2c0 1.32-1.08 2.4-2.4 2.4H2.4C1.08 24 0 22.92 0 21.6V2.4C0 1.08 1.08 0 2.4 0zM12 6.6c-2.393 0-4.338.112-5.836.335A1.6 1.6 0 0 0 4.8 8.518v6.905a1.6 1.6 0 0 0 1.387 1.586c1.937.26 3.875.391 5.813.391 1.938 0 3.876-.13 5.813-.391a1.6 1.6 0 0 0 1.387-1.586V8.518a1.6 1.6 0 0 0-1.364-1.583C16.338 6.712 14.393 6.6 12 6.6zm-1.2 3l3.6 2.4-3.6 2.4V9.6z'></path>
+            </svg></a> 
+      </div>
+      <div class="div8 mobile">
+            
+          <a href="https://www.nasa.gov" target="_blank"><p>NASA.gov</p></a>
+          <a href="https://www.nasa.gov/about/contact/index.html" target="_blank"><p>Contact</p></a> 
+          <a href="https://climate.nasa.gov/" target="_blank"><p>Global Climate Change</p></a>
+          <a href="https://eyes.nasa.gov/apps/earth/#/" target="_blank"><p>Eyes on Earth</p></a>
+          <a href="https://science.nasa.gov/" target="_blank"><p>Science Mission Directorate</p></a>
+          <a href="https://www.nasa.gov/audience/formedia/features/communication_policy.html" target="_blank"><p>Communications Policy</p></a>
+          <a href="https://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank"><p>Web Privacy</p></a> 
+          <a href="https://www.nasa.gov/FOIA/index.html" target="_blank"><p>Freedom of Information Act</p></a>
+          <a href="https://www.usa.gov/" target="_blank"><p>USA.gov</p></a>
+      </div>
+      
+      <div class="div12 mobile" style="text-align: center;">
+      <!-- FOUNDING PARTNERS --><br>
+          <a href="https://www.usda.gov/" title="USDA" target="_blank">
+            <img src="https://gis.earthdata.nasa.gov/portal/sharing/rest/content/items/9b9287369c7c4256add97d5a336cec96/data" alt="USDA" width="" height="20px" />
+          </a>&nbsp;
+          <a href="https://www.usgs.gov/" title="USGS" target="_blank">
+            <img src="https://gis.earthdata.nasa.gov/portal/sharing/rest/content/items/fdacf1b8d3794c468439e2e0f0c604cb/data" alt="USGS" width="" height="14px" />
+          </a>&nbsp;
+                <a href="https://www.fema.gov/" title="FEMA" target="_blank">
+            <img src="https://gis.earthdata.nasa.gov/portal/sharing/rest/content/items/b29a95351b584be69fbd98dc489faa53/data" alt="FEMA" width="" height="25px" />
+          </a>&nbsp;
+    
+           <a href="https://www.epa.gov/" title="EPA" target="_blank">
+            <img src="https://gis.earthdata.nasa.gov/portal/sharing/rest/content/items/3f5e590cbdd44e3eb64b7910da5c4bab/data" alt="EPA" width="" height="30px" />
+          </a>&nbsp;
+    
+          <a href="https://www.usaid.gov/" title="USAID" target="_blank">
+            <img src="https://gis.earthdata.nasa.gov/portal/sharing/rest/content/items/5da92a69e1824763ba1813ab2e576d9e/data" alt="USAID" width="" height="30px" />
+          </a>&nbsp;
+          <a href="https://www.noaa.gov/" title="NOAA" target="_blank">
+            <img src="https://gis.earthdata.nasa.gov/portal/sharing/rest/content/items/410caa84a0f34a2dafa641d0c9e47caa/data" alt="NOAA" width="" height="30px" />
+          </a>&nbsp;<br>
+    </div>
+      
+      
+    </div>
+    

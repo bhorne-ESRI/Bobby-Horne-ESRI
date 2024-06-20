@@ -1,0 +1,80 @@
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
+      <div class="calcite-web">
+        <div class="card-base card-wide card-shaped" style="background-color: #17171b; display: flex; align-items: center; min-height:200px;">
+          <div class="card-wide-image-wrap" style="padding-top: 85px; min-width:100px; min-height:200px;"> 
+            <a href="https://earthobservatory.nasa.gov/images/151442/hazardous-air-chokes-northeastern-states" target="_blank" tabindex="-1">
+              <img alt="air-quality-dc" class="card-image" src="https://gis.earthdata.nasa.gov/portal/sharing/rest/content/items/b1d15fc802204af498f2e67bafd77900/data" style="width: 100px; height: 100px; border-radius: 50%;"></a>
+          </div>
+          <div class="card-content" style="align-items: center; border:none; box-shadow: none;">2 MIN READ
+            <a href="https://earthobservatory.nasa.gov/images/151442/hazardous-air-chokes-northeastern-states" target="_blank">
+              <h5>Canadian Wildfire Smoke</h5></a>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+<path d="M0.499026 10C0.499026 4.7533 4.75232 0.500003 9.99902 0.500003C15.2457 0.500002 19.499 4.7533 19.499 10C19.499 15.2467 15.2457 19.5 9.99903 19.5C4.75232 19.5 0.499027 15.2467 0.499026 10Z" stroke="white"/>
+<path d="M6.99902 5C6.99902 5 6.99937 13.9988 6.99937 15L9.99902 12L12.999 15C12.999 13.9988 12.999 5 12.999 5H6.99902Z" fill="white"/>
+</svg><span> ARTICLE</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
+      <div class="calcite-web">
+        <div class="card-base card-wide card-shaped" style="background-color: #17171b; display: flex; align-items: center; min-height:200px;">
+          <div class="card-wide-image-wrap" style="padding-top: 85px; min-width:100px; min-height:200px;"> 
+            <a href="https://www.youtube.com/watch?v=Ip7JnMsSAsI&amp;list=PL55HrL0eJVEYo0D3cuV-8kF3taW3D81S9" target="_blank" tabindex="-1">
+            <img alt="air-quality-dc" class="card-image" src="https://gis.earthdata.nasa.gov/portal/sharing/rest/content/items/bbf066980f994976aecd0e14d9f45998/data" style="width: 100px; height: 100px; border-radius: 50%;"></a>
+          </div>
+          <div class="card-content" style="align-items: center; border:none; box-shadow: none;">
+            <p>2 MIN VIDEO</p>
+            <a href="https://www.youtube.com/watch?v=Ip7JnMsSAsI&amp;list=PL55HrL0eJVEYo0D3cuV-8kF3taW3D81S9" target="_blank">
+            <h5 style="align-items: center;">Air Quality in DC</h5></a>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+<circle cx="9.99902" cy="10" r="9.5" stroke="white"/>
+<path d="M14.999 9.99508L6.99902 14.6601L6.99902 5.33008L14.999 9.99508Z" fill="white"/>
+</svg><span> VIDEO</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
+      <div class="calcite-web"> 
+        <div class="card-base card-wide card-shaped" style="background-color: #17171b; display: flex; align-items: center;min-height:200px;">
+          <div class="card-wide-image-wrap" style="padding-top: 85px; min-width:100px; min-height:200px;">  
+            <a href="https://earthobservatory.nasa.gov/images/90095/satellites-eye-winter-cover-crops" target="_blank" tabindex="-1"> 
+              <img alt="air-quality-dc" class="card-image" src="https://gis.earthdata.nasa.gov/portal/sharing/rest/content/items/d66266fac2d64352b876cff62451d2a2/data" style="width: 100px; height: 100px; border-radius: 50%;"></a>
+          </div>
+          <div class="card-content" style="align-items: center; border:none; box-shadow: none;">
+            <p>4 MIN READ</p>
+            <a href="https://earthobservatory.nasa.gov/images/90095/satellites-eye-winter-cover-crops" target="_blank"> 
+            <h5 style="align-items: center;">Crops Reduce Pollution</h5></a>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+<path d="M0.499026 10C0.499026 4.7533 4.75232 0.500003 9.99902 0.500003C15.2457 0.500002 19.499 4.7533 19.499 10C19.499 15.2467 15.2457 19.5 9.99903 19.5C4.75232 19.5 0.499027 15.2467 0.499026 10Z" stroke="white"/>
+<path d="M6.99902 5C6.99902 5 6.99937 13.9988 6.99937 15L9.99902 12L12.999 15C12.999 13.9988 12.999 5 12.999 5H6.99902Z" fill="white"/>
+</svg><span>ARTICLE</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
+    <div class="calcite-web">
+        <div class="card-base card-wide card-shaped" style="background-color: #17171b; display: flex; align-items: center; min-height:200px;">
+          <div class="card-wide-image-wrap" style="padding-top: 85px; min-width:100px; min-height:200px;"> 
+          <a href="https://www.nasa.gov/sites/default/files/atoms/audio/ep154_the_nasa_worm.mp3" target="_blank" tabindex="-1">
+            <img alt="the-worm" class="card-image" src="https://gis.earthdata.nasa.gov/portal/sharing/rest/content/items/514cce8aaa09422e8a7e5077910994fa/data" style="width: 100px; height: 100px; border-radius: 50%;"></a>
+        </div>
+        <div class="card-content" style="align-items: center; border:none; box-shadow: none;">
+          <p>1 HR PODCAST</p>
+          <a href="https://www.nasa.gov/sites/default/files/atoms/audio/ep154_the_nasa_worm.mp3" target="_blank">
+          <h5 style="align-items: center;">The Worm is Back</h5></a>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+<circle cx="9.99902" cy="10" r="9.5" stroke="white"/>
+<path d="M14.999 9.99508L6.99902 14.6601L6.99902 5.33008L14.999 9.99508Z" fill="white"/>
+</svg><span> PODCAST</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
