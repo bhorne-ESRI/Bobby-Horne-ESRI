@@ -1,0 +1,54 @@
+var ranking = $datapoint.ranking
+var usng = $datapoint.USNGCoord
+var TotalScore = $datapoint.Poinnt_Count_1
+
+var lowest = `<div style="background-color:#F5F500;border:2px solid #f7f7f7;padding:10px; display:flex; justify-content: space-between;">
+    <div>
+        <p><span style="font-size:14px;"><strong>Grid Square: </strong>${USNGCOORD}</span></p>
+        <p style="font-size:14px;"><strong>Overall Ranking</strong> ${TotalScore}</p>
+    </div>
+        <p><span style="font-size:14px; background-color: #006688; padding: 3px; border-radius: 5px; color: white;">{ranking}</span></p>
+</div>`
+
+var low = `<div style="background-color:#F5A300;border:2px solid #f7f7f7;padding:10px; display:flex; justify-content: space-between;">
+    <div>
+        <p><span style="font-size:14px;"><strong>Grid Square: </strong>${USNGCOORD}</span></p>
+        <p style="font-size:14px;"><strong>Overall Ranking</strong> ${TotalScore}</p>
+    </div>
+        <p><span style="font-size:14px; background-color: #006688; padding: 3px; border-radius: 5px; color: white;">{ranking}</span></p>
+</div>`
+var medium = `<div style="background-color:#F55200;border:2px solid #f7f7f7;padding:10px; display:flex; justify-content: space-between;">
+    <div>
+        <p><span style="font-size:14px;"><strong>Grid Square: </strong>${USNGCOORD}</span></p>
+        <p style="font-size:14px;"><strong>Overall Ranking</strong> ${TotalScore}</p>
+    </div>
+        <p><span style="font-size:14px; background-color: #006688; padding: 3px; border-radius: 5px; color: white;">{ranking}</span></p>
+</div>`
+
+var high = `<div style="background-color:#F50600;border:2px solid #f7f7f7;padding:10px; display:flex; justify-content: space-between;">
+    <div>
+        <p><span style="font-size:14px;"><strong>Grid Square: </strong>${USNGCOORD}</span></p>
+        <p style="font-size:14px;"><strong>Overall Ranking</strong> ${TotalScore}</p>
+    </div>
+        <p><span style="font-size:14px; background-color: #006688; padding: 3px; border-radius: 5px; color: white;">{ranking}</span></p>
+</div>`
+
+var html_returned = When(TotalScore ==1,"Lowest", lowest,
+                         TotalScore ==1,"Lowest", lowest, open_html)
+
+// return the funal compiled html as a attribute below
+                         
+return {
+  textColor: '',
+  backgroundColor: '',
+  separatorColor:'',
+  selectionColor: '',
+  selectionTextColor: '',
+  attributes: {
+     html_returned: html_returned,
+   }
+}
+
+// input the returned attribute into the line item template of the list
+{expression/html_returned}
+

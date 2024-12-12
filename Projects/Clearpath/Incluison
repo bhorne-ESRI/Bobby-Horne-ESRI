@@ -1,0 +1,72 @@
+<h2 style="text-align:center;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Pre-Qualified Clean Energy&nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Locations</h2>
+<table style="height:100%; width:100%; border-style:solid; border-color:#000000; font-family:lato;" border="2" width="100%">
+    <tbody>
+        <tr>
+            <th style="width:21.288%; text-align:center;">Layer</th>
+            <th style="width:77.2809%;">Description</th>
+        </tr>
+        <tr>
+            <td style="width:21.288%; text-align:center;">EPA Repowering<br /><img src="https://clearpath-dc.maps.arcgis.com/sharing/rest/content/items/e375ec79691b4b9fad80b059554c425c/data" alt="alternatetext" width="50%" /></td>
+            <td style="width:77.2809%; font-family:lato;"><p>Land for EPA Repowering represents contaminated lands, landfills and mine sites
+                that can be used for renewable energy development.</p> </td>
+        </tr>
+        <tr>
+            <td style="width:21.288%; text-align:center;">Abandoned Defense Property Sites<br /><img src="https://clearpath-dc.maps.arcgis.com/sharing/rest/content/items/869176390fa44da9993fb6db4f10cca5/data" alt="alternatetext" width="50%" /></td>
+            <td style="width:77.2809%; font-family:lato;"><p>The abandoned defense property sites represent the military properties that
+                were formerly owned by, leased to or possessed by the United States and under the jurisdiction of the
+                Secretary of Defense in the Department of Defense. Such properties are investigated and remediated for
+                potential contamination that may remain which can include cleaning up hazardous, toxic and radioactive
+                waste sites, removing munitions and explosives of concern and munitions constituents as well as doing
+                building demolition and debris removal.</p> </td>
+        </tr>
+        <tr>
+            <td style="width:21.288%; text-align:center;">Abandoned Defense Project Sites<br /><img src="https://clearpath-dc.maps.arcgis.com/sharing/rest/content/items/869176390fa44da9993fb6db4f10cca5/data" alt="alternatetext" width="50%" /></td>
+            <td style="width:77.2809%; font-family:lato;"><p>The abandoned defense project sites represent the military projects that were
+                formerly run by the United States and under the jurisdiction of the Secretary of Defense in the
+                Department of Defense. Such projects are investigated and remediated for potential contamination that
+                may remain which can include cleaning up hazardous, toxic and radioactive waste sites, removing
+                munitions and explosives of concern and munitions constituents as well as doing building demolition and
+                debris removal.</p> </td>
+        </tr>
+        <tr>
+            <td style="width:21.288%; text-align:center;">Management Data<br /><img src="https://clearpath-dc.maps.arcgis.com/sharing/rest/content/items/e375ec79691b4b9fad80b059554c425c/data" alt="alternatetext" width="50%" /></td>
+            <td style="width:77.2809%; font-family:lato;"><p>Interim Risk Management Data is an initiative to reduce risks from
+                munitions-related hazards that may remain from the Department of Defense's use of property.</p> </td>
+        </tr>
+        <tr>
+            <td style="width:21.288%; text-align:center;">Brownfield Sites<br /><img src="https://clearpath-dc.maps.arcgis.com/sharing/rest/content/items/e375ec79691b4b9fad80b059554c425c/data" alt="alternatetext" width="50%" /></td>
+            <td style="width:77.2809%; font-family:lato;"><p>Brownfield sites are properties where the expansion, redevelopment or reuse may
+                be complicated by the presence or potential presence of hazardous substances, pollutants or
+                contaminants.</p> </td>
+        </tr>
+        <tr>
+            <td style="width:21.288%; text-align:center;">Abandoned Mines<br /><img src="https://clearpath-dc.maps.arcgis.com/sharing/rest/content/items/2262e7981a0f4ed0aefb2ab44e014aba/data" alt="alternatetext" width="50%" /></td>
+            <td style="width:77.2809%; font-family:lato;"><p>Abandoned mines are abandoned mine sites or any portion of the site identified
+                by the Office of Surface Mining Reclamation and Enforcement.</p> </td>
+        </tr>
+        <tr>
+            <td style="width:21.288%; text-align:center;">Abandoned Defense Munitions Area<br /><img src="https://clearpath-dc.maps.arcgis.com/sharing/rest/content/items/d9778ff633bc4ee8a3a26291b59efd00/data" alt="alternatetext" width="75%" /></td>
+            <td style="width:77.2809%; font-family:lato;"><p>The abandoned defense munitions area represent munitions response sites at
+                active installations, Formerly Used Defense Sites, and Base Realignment and Closure locations that are
+                known or suspected to contain unexploded ordnance, discarded military munitions or munitions
+                constituents. The Department of Defense complies with environmental cleanup laws such as the
+                Comprehensive Environmental Response, Compensation and Liability Act.</p> </td>
+        </tr>
+        <tr>
+            <td style="width:21.288%; text-align:center;">Management Data<br /><img src="https://clearpath-dc.maps.arcgis.com/sharing/rest/content/items/d9778ff633bc4ee8a3a26291b59efd00/data" alt="alternatetext" width="75%" /></td>
+            <td style="width:77.2809%; font-family:lato;"><p>Interim Risk Management Data is an initiative to reduce risks from
+                munitions-related hazards that may remain from the Department of Defense's use of property.</p> </td>
+        </tr>
+        <tr>
+            <td style="width:21.288%; text-align:center;">Abandoned Defense Property Areas<br /><img src="https://clearpath-dc.maps.arcgis.com/sharing/rest/content/items/d9778ff633bc4ee8a3a26291b59efd00/data" alt="alternatetext" width="75%" /></td>
+            <td style="width:77.2809%; font-family:lato;">
+               <p>The abandoned defense property areas represent the military properties that
+                were formerly owned by, leased to or possessed by the United States and under the jurisdiction of the
+                Secretary of Defense in the Department of Defense. Such properties are investigated and remediated for
+                potential contamination that may remain which can include cleaning up hazardous, toxic and radioactive
+                waste sites, removing munitions and explosives of concern and munitions constituents as well as doing
+                building demolition and debris removal.</p> </td>
+        </tr>
+    </tbody>
+</table>

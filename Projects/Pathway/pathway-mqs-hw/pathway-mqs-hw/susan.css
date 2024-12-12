@@ -1,0 +1,84 @@
+/* #region ---------------- Template Comments ---------------- */
+
+/* Decorative */
+/* Sizing */
+/* Layout */
+
+/* #region ----------------  ---------------- */
+/* #endregion -------------  ---------------- */
+
+/* #endregion ------------- Template Comments ---------------- */
+
+/* #region ---------------- Hub Simulator Setup ---------------- */
+.hub-row-simulator {
+  /* Decorative */
+  background-color: #fff;
+  /* Sizing */
+  width: 100vw;
+  height: auto;
+  padding: 10% 2rem;
+  /* Layout */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hub-row-simulator:nth-of-type(2n) {
+  background-color: #dedede;
+}
+/* #endregion ------------- Hub Simulator Setup ---------------- */
+
+/* #region ---------------- Banner Row ---------------- */
+#grandma {
+  /* Decorative */
+  background-color: aqua;
+  /* Sizing */
+  max-width: 60vw;
+  padding: 20px;
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+  /* Direct children of grandma */
+#grandma > {
+  /* Sizing */
+  width: auto;
+}
+
+#momma {
+  /* Decorative */
+  background-color: blue;
+  /* Layout */
+  display: flex;
+  gap: 10px;
+}
+
+#momma button {
+  /* Decorative */
+  background-color: cornflowerblue;
+  /* Sizing */
+  width: min-content;
+  padding: 2px 10px;
+}
+
+@media (max-width: 576px) {
+  #grandma {
+    /* Sizing */
+    /* (100% of the content box of the row it's inside, so 100vw minus 20px on either side) */
+    max-width: 100%; 
+  }
+  /* Direct children of grandma */
+  #grandma > {
+    /* Sizing */
+    width: 100%;
+  }
+  #momma {
+    /* Layout */
+    flex-direction: column;
+  }
+  #momma button {
+    /* Sizing */
+    width: 100%;
+  }
+}
+/* #endregion ------------- Banner Row ---------------- */
